@@ -1,21 +1,22 @@
 package org.example;
 
-import java.awt.*;
+import javax.swing.*;
 
 /**
  * Swing application
- *
  */
-public class App 
-{
-    public static void main( String[] args )
-    {
-        EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                MainFrame frame = new MainFrame();
-                frame.setVisible(true);
-            }
+public class App {
+
+    public static void main(String[] args) {
+        new App().start();
+    }
+
+    public void start() {
+        SwingUtilities.invokeLater(() -> {
+            final SplashScreen s = new SplashScreen();
+            s.setVisible(true);
+
+            new TaskLoadApplication(s).execute();
         });
     }
 }
