@@ -22,6 +22,5 @@ public class SplashScreen extends JDialog {
         progressBar.setValue(progressValue);
         progressBar.setStringPainted(true);
         progressBar.setString(progressString);
-        repaint();
     }
 }
