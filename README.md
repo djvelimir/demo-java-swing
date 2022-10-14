@@ -1,7 +1,7 @@
 # demo-java-swing
 
 ## Splash Screen
-![alt Splash Screen](resources/SplashScreen.png "Title")
+![Splash Screen](resources/SplashScreen.png)
 
 ## Main Frame
-![alt Main Frame](resources/MainFrame.png "Title")
+![Main Frame](resources/MainFrame.png)
