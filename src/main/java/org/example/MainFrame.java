@@ -8,7 +8,7 @@ public class MainFrame extends JFrame {
     private Icon iconDice = new ImageIcon(this.getClass().getResource("/dice-icon.png"));
     private JPasswordField txtGeneratedPassword = new JPasswordField();
     private JButton btnGeneratePassword = new JButton(iconDice);
-    private JButton btnCopy = new JButton(iconCopy);
+    private JButton btnCopyPassword = new JButton(iconCopy);
 
     public MainFrame() {
         super("demo-java-swing");
@@ -16,12 +16,12 @@ public class MainFrame extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         btnGeneratePassword.setToolTipText("Generate Password");
-        btnCopy.setToolTipText("Copy");
+        btnCopyPassword.setToolTipText("Copy Password");
 
         JToolBar toolBar = new JToolBar();
         toolBar.setFloatable(false);
         toolBar.add(btnGeneratePassword);
-        toolBar.add(btnCopy);
+        toolBar.add(btnCopyPassword);
 
         JPanel panel = new JPanel(new BorderLayout());
         panel.add(toolBar, BorderLayout.PAGE_START);
@@ -31,7 +31,7 @@ public class MainFrame extends JFrame {
 
         setLocationRelativeTo(null);
 
-        btnCopy.addActionListener(e -> {
+        btnCopyPassword.addActionListener(e -> {
             txtGeneratedPassword.putClientProperty("JPasswordField.cutCopyAllowed", true);
             txtGeneratedPassword.selectAll();
             txtGeneratedPassword.copy();

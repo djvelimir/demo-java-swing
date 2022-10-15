@@ -1,0 +1,13 @@
+@startuml
+left to right direction
+
+actor "User" as user
+
+rectangle demo-java-swing {
+  usecase "Generate Password" as generatePassword
+  usecase "Copy Password" as copyPassword
+}
+
+user --> generatePassword
+user --> copyPassword
+@enduml
