@@ -12,7 +12,6 @@ public class MainFrame extends JFrame {
 
     public MainFrame() {
         super("demo-java-swing");
-        setSize(400, 120);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         btnGeneratePassword.setToolTipText("Generate Password");
@@ -24,11 +23,13 @@ public class MainFrame extends JFrame {
         toolBar.add(btnCopyPassword);
 
         JPanel panel = new JPanel(new BorderLayout());
-        panel.add(toolBar, BorderLayout.PAGE_START);
+        panel.add(toolBar, BorderLayout.EAST);
         panel.add(txtGeneratedPassword, BorderLayout.CENTER);
 
         getContentPane().add(panel, BorderLayout.CENTER);
 
+        txtGeneratedPassword.setPreferredSize(new Dimension(350,24));
+        pack();
         setLocationRelativeTo(null);
 
         btnCopyPassword.addActionListener(e -> {
