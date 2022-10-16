@@ -18,9 +18,7 @@ public class TaskLoadApplication extends SwingWorker<Void, Integer> {
     @Override
     protected void process(List<Integer> chunks) {
         int currentStep = chunks.get(chunks.size() - 1);
-        splashScreen.updateProgress(
-                (int) (((double) currentStep / maxSteps) * 100) + "%",
-                currentStep * 100 / maxSteps);
+        splashScreen.updateProgress((int) (((double) currentStep / maxSteps) * 100) + "%", currentStep * 100 / maxSteps);
     }
 
     @Override
@@ -46,7 +44,7 @@ public class TaskLoadApplication extends SwingWorker<Void, Integer> {
             get();
             splashScreen.setVisible(false);
 
-            MainFrame frame = new MainFrame();
+            MainFrame frame = new MainFrame(new PasswordGeneratorImpl());
             frame.setVisible(true);
         } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
