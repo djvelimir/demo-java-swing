@@ -3,18 +3,21 @@ package org.example;
 import javax.swing.*;
 import java.awt.*;
 
-public class MainFrame extends JFrame {
+public class MainFrame {
+
     private PasswordGenerator passwordGenerator;
+    private JFrame frame = new JFrame();
     private Icon iconCopy = new ImageIcon(this.getClass().getResource("/copy-icon.png"));
     private Icon iconDice = new ImageIcon(this.getClass().getResource("/dice-icon.png"));
     private JPasswordField txtGeneratedPassword = new JPasswordField();
     private JButton btnGeneratePassword = new JButton(iconDice);
     private JButton btnCopyPassword = new JButton(iconCopy);
 
-    public MainFrame(PasswordGenerator passwordgenerator) {
-        super("demo-java-swing");
-        this.passwordGenerator = passwordgenerator;
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+    public MainFrame(PasswordGenerator passwordGenerator) {
+        this.passwordGenerator = passwordGenerator;
+
+        frame.setTitle("demo-java-swing");
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         btnGeneratePassword.setToolTipText("Generate Password");
         btnCopyPassword.setToolTipText("Copy Password");
@@ -28,11 +31,11 @@ public class MainFrame extends JFrame {
         panel.add(toolBar, BorderLayout.EAST);
         panel.add(txtGeneratedPassword, BorderLayout.CENTER);
 
-        getContentPane().add(panel, BorderLayout.CENTER);
+        frame.getContentPane().add(panel, BorderLayout.CENTER);
 
         txtGeneratedPassword.setPreferredSize(new Dimension(350, 24));
-        pack();
-        setLocationRelativeTo(null);
+        frame.pack();
+        frame.setLocationRelativeTo(null);
 
         btnCopyPassword.addActionListener(e -> {
             txtGeneratedPassword.putClientProperty("JPasswordField.cutCopyAllowed", true);
@@ -41,8 +44,12 @@ public class MainFrame extends JFrame {
         });
 
         btnGeneratePassword.addActionListener(e -> {
-            String generatedPassword = passwordgenerator.generate();
+            String generatedPassword = this.passwordGenerator.generate();
             txtGeneratedPassword.setText(generatedPassword);
         });
+    }
+
+    public void show() {
+        frame.setVisible(true);
     }
 }
