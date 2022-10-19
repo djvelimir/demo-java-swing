@@ -1,10 +1,13 @@
 package org.example;
 
+import org.springframework.stereotype.Component;
+
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
+@Component
 public class PasswordGeneratorImpl implements PasswordGenerator {
     private static final int PASSWORD_LENGTH = 16;
     private static final String UPPERCASE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
