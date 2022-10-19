@@ -9,13 +9,13 @@ import java.awt.*;
 @Component
 public class MainFrameImpl implements MainFrame {
 
-    private PasswordGenerator passwordGenerator;
-    private JFrame frame = new JFrame();
-    private Icon iconCopy = new ImageIcon(this.getClass().getResource("/copy-icon.png"));
-    private Icon iconDice = new ImageIcon(this.getClass().getResource("/dice-icon.png"));
-    private JPasswordField txtGeneratedPassword = new JPasswordField();
-    private JButton btnGeneratePassword = new JButton(iconDice);
-    private JButton btnCopyPassword = new JButton(iconCopy);
+    private final PasswordGenerator passwordGenerator;
+    private final JFrame frame = new JFrame();
+    private final Icon iconCopy = new ImageIcon(this.getClass().getResource("/copy-icon.png"));
+    private final Icon iconDice = new ImageIcon(this.getClass().getResource("/dice-icon.png"));
+    private final JPasswordField txtGeneratedPassword = new JPasswordField();
+    private final JButton btnGeneratePassword = new JButton(iconDice);
+    private final JButton btnCopyPassword = new JButton(iconCopy);
 
     @Autowired
     public MainFrameImpl(PasswordGenerator passwordGenerator) {

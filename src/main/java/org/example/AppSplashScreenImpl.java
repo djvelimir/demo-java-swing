@@ -9,10 +9,10 @@ import java.awt.*;
 @Component
 public class AppSplashScreenImpl implements AppSplashScreen {
 
-    private JDialog dialog = new JDialog();
-    private ImageIcon imageIcon = new ImageIcon(this.getClass().getResource("/splash_animation.gif"));
-    private JLabel label = new JLabel(imageIcon);
-    private JProgressBar progressBar = new JProgressBar();
+    private final JDialog dialog = new JDialog();
+    private final ImageIcon imageIcon = new ImageIcon(this.getClass().getResource("/splash_animation.gif"));
+    private final JLabel label = new JLabel(imageIcon);
+    private final JProgressBar progressBar = new JProgressBar();
 
     @Autowired
     public AppSplashScreenImpl() {
