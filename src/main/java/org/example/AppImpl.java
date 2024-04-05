@@ -28,6 +28,6 @@ public class AppImpl implements App {
 
     @Override
     public void start() {
-        SwingUtilities.invokeLater(() -> taskLoadApplication.execute());
+        SwingUtilities.invokeLater(taskLoadApplication::execute);
     }
 }

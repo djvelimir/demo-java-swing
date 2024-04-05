@@ -13,7 +13,7 @@ public class PasswordGeneratorImpl implements PasswordGenerator {
     private static final String UPPERCASE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     private static final String LOWERCASE_CHARACTERS = "abcdefghijklmnopqrstuvwxyz";
     private static final String DIGIT_CHARACTERS = "0123456789";
-    private static final String SPECIAL_CHARACTERS = "~`!@#$%^&*()-_=+[{]}\\|;:\'\",<.>/?";
+    private static final String SPECIAL_CHARACTERS = "~`!@#$%^&*()-_=+[{]}\\|;:'\",<.>/?";
     private static final String UNION_OF_ALLOWED_CHARACTERS = UPPERCASE_CHARACTERS
             .concat(LOWERCASE_CHARACTERS)
             .concat(DIGIT_CHARACTERS)

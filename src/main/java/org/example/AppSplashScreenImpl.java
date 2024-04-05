@@ -5,12 +5,13 @@ import org.springframework.stereotype.Component;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Objects;
 
 @Component
 public class AppSplashScreenImpl implements AppSplashScreen {
 
     private final JDialog dialog = new JDialog();
-    private final ImageIcon imageIcon = new ImageIcon(this.getClass().getResource("/splash_animation.gif"));
+    private final ImageIcon imageIcon = new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/splash_animation.gif")));
     private final JLabel label = new JLabel(imageIcon);
     private final JProgressBar progressBar = new JProgressBar();
 

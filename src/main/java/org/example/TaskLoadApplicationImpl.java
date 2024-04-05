@@ -24,7 +24,7 @@ public class TaskLoadApplicationImpl extends SwingWorker<Void, Integer> implemen
 
     @Override
     protected void process(List<Integer> chunks) {
-        int currentStep = chunks.get(chunks.size() - 1);
+        int currentStep = chunks.getLast();
 
         if (currentStep == 1) {
             splashScreen.show();

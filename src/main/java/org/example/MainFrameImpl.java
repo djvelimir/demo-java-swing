@@ -5,14 +5,15 @@ import org.springframework.stereotype.Component;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Objects;
 
 @Component
 public class MainFrameImpl implements MainFrame {
 
     private final PasswordGenerator passwordGenerator;
     private final JFrame frame = new JFrame();
-    private final Icon iconCopy = new ImageIcon(this.getClass().getResource("/copy-icon.png"));
-    private final Icon iconDice = new ImageIcon(this.getClass().getResource("/dice-icon.png"));
+    private final Icon iconCopy = new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/copy-icon.png")));
+    private final Icon iconDice = new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/dice-icon.png")));
     private final JPasswordField txtGeneratedPassword = new JPasswordField();
     private final JButton btnGeneratePassword = new JButton(iconDice);
     private final JButton btnCopyPassword = new JButton(iconCopy);
