@@ -1,11 +1,12 @@
 @startuml
+!theme crt-green
 left to right direction
 
 actor "User" as user
 
 rectangle demo-java-swing {
-  usecase "Generate Password" as generatePassword
   usecase "Copy Password" as copyPassword
+  usecase "Generate Password" as generatePassword
 }
 
 user --> generatePassword
