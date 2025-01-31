@@ -8,7 +8,10 @@ Welcome to the Password Generator Application! This tool is designed to help use
 
 A use case diagram for a password generator application illustrates the interactions between users and the system. In this diagram, two primary use cases are highlighted: "Generate Password" and "Copy Password." The "Generate Password" use case allows users to create secure, random passwords. Meanwhile, the "Copy Password" use case enables users to easily transfer generated passwords to their clipboard for seamless pasting into login fields. Together, these use cases enhance user experience by providing straightforward tools for password management and security.
 
-![Use Case Diagram](http://www.plantuml.com/plantuml/proxy?cache=no&fmt=svg&src=https://raw.githubusercontent.com/djvelimir/demo-java-swing/main/diagrams/UseCase.puml)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://www.plantuml.com/plantuml/proxy?cache=no&fmt=svg&src=https://raw.githubusercontent.com/djvelimir/demo-java-swing/main/diagrams/UseCase_dark.puml">
+  <img alt="Use Case Diagram" src="http://www.plantuml.com/plantuml/proxy?cache=no&fmt=svg&src=https://raw.githubusercontent.com/djvelimir/demo-java-swing/main/diagrams/UseCase.puml">
+</picture>
 
 ## Splash Screen
 
