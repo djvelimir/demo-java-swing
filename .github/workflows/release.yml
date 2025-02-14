@@ -22,8 +22,7 @@ jobs:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
           body: |
-            **Release Notes: demo-java-swing Password Generator Application**
-
-            We are excited to announce the initial release of the demo-java-swing Password Generator application! This user-friendly tool allows you to generate strong, secure passwords up to 16 characters, utilizing Java Swing for a seamless graphical interface. The application supports various character types, including uppercase letters, lowercase letters, digits, and special symbols, ensuring high-quality randomness and security. With an intuitive design, users can easily customize their password requirements, making it perfect for anyone looking to enhance their online security. Dive in and secure your digital presence with ease!
+            **Release Notes:**
+            - Added the Maven Dependency Plugin to automatically create a target/lib folder containing all project dependencies. This enhancement streamlines the packaging process, making it easier to manage and include external libraries required for project execution.
           draft: false
           prerelease: false
