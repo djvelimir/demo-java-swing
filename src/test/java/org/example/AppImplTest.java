@@ -1,20 +1,21 @@
 package org.example;
 
-import static org.junit.Assert.assertTrue;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Unit test for simple App.
  */
-public class AppImplTest
-{
+@ExtendWith(MockitoExtension.class)
+class AppImplTest {
     /**
      * Rigorous Test :-)
      */
     @Test
-    public void shouldAnswerWithTrue()
-    {
-        assertTrue( true );
+    void shouldAnswerWithTrue() {
+        assertTrue(true);
     }
 }
