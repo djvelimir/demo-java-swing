@@ -6,12 +6,13 @@
 
   <groupId>org.example</groupId>
   <artifactId>demo-java-swing</artifactId>
-  <version>1.0.1</version>
+  <version>${revision}</version>
 
   <name>demo-java-swing</name>
   <url>https://djvelimir.github.io</url>
 
   <properties>
+    <revision>v1.0.0</revision>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>21</maven.compiler.source>
     <maven.compiler.target>21</maven.compiler.target>

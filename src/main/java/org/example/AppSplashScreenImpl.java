@@ -9,40 +9,42 @@ import java.util.Objects;
 
 @Component
 public class AppSplashScreenImpl implements AppSplashScreen {
-
-    private final JDialog dialog = new JDialog();
-    private final ImageIcon imageIcon = new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/splash_animation.gif")));
-    private final JLabel label = new JLabel(imageIcon);
-    private final JProgressBar progressBar = new JProgressBar();
+    private final JWindow window;
+    private final JProgressBar progressBar;
 
     @Autowired
     public AppSplashScreenImpl() {
-        dialog.setUndecorated(true);
-        dialog.getContentPane().add(label, BorderLayout.CENTER);
-        dialog.getContentPane().add(progressBar, BorderLayout.PAGE_END);
-        dialog.pack();
-        dialog.setLocationRelativeTo(null);
+        JLabel label = new JLabel();
+        ImageIcon imageIcon = new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/splash_animation.gif")));
+        label.setIcon(imageIcon);
+        progressBar = new JProgressBar();
+        progressBar.setStringPainted(true);
+
+        window = new JWindow();
+        window.getContentPane().add(label, BorderLayout.CENTER);
+        window.getContentPane().add(progressBar, BorderLayout.PAGE_END);
     }
 
     @Override
     public void show() {
-        dialog.setVisible(true);
+        window.pack();
+        window.setLocationRelativeTo(null);
+        window.setVisible(true);
     }
 
     @Override
     public void hide() {
-        dialog.setVisible(false);
+        window.setVisible(false);
     }
 
     @Override
     public void dispose() {
-        dialog.dispose();
+        window.dispose();
     }
 
     @Override
     public void updateProgress(String progressString, int progressValue) {
         progressBar.setValue(progressValue);
-        progressBar.setStringPainted(true);
         progressBar.setString(progressString);
     }
 }

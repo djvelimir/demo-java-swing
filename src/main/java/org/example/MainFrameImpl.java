@@ -11,21 +11,24 @@ import java.util.Objects;
 public class MainFrameImpl implements MainFrame {
 
     private final PasswordGenerator passwordGenerator;
-    private final JFrame frame = new JFrame();
-    private final Icon iconCopy = new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/copy-icon.png")));
-    private final Icon iconDice = new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/dice-icon.png")));
-    private final JPasswordField txtGeneratedPassword = new JPasswordField();
-    private final JButton btnGeneratePassword = new JButton(iconDice);
-    private final JButton btnCopyPassword = new JButton(iconCopy);
+    private final JFrame frame;
+    private final JPasswordField txtGeneratedPassword;
 
     @Autowired
     public MainFrameImpl(PasswordGenerator passwordGenerator) {
         this.passwordGenerator = passwordGenerator;
 
-        frame.setTitle("demo-java-swing");
+        frame = new JFrame();
+        frame.setTitle("Password Generator");
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
+        Icon iconCopy = new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/copy-icon.png")));
+        Icon iconDice = new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/dice-icon.png")));
+        txtGeneratedPassword = new JPasswordField();
+        txtGeneratedPassword.setEditable(false);
+        JButton btnGeneratePassword = new JButton(iconDice);
         btnGeneratePassword.setToolTipText("Generate Password");
+        JButton btnCopyPassword = new JButton(iconCopy);
         btnCopyPassword.setToolTipText("Copy Password");
 
         JToolBar toolBar = new JToolBar();
@@ -40,8 +43,6 @@ public class MainFrameImpl implements MainFrame {
         frame.getContentPane().add(panel, BorderLayout.CENTER);
 
         txtGeneratedPassword.setPreferredSize(new Dimension(350, 24));
-        frame.pack();
-        frame.setLocationRelativeTo(null);
 
         btnCopyPassword.addActionListener(e -> {
             txtGeneratedPassword.putClientProperty("JPasswordField.cutCopyAllowed", true);
@@ -57,6 +58,8 @@ public class MainFrameImpl implements MainFrame {
 
     @Override
     public void show() {
+        frame.pack();
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
 }
