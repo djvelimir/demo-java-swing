@@ -1,28 +1,59 @@
+name: Build and Release
+
 on:
   push:
-    # Sequence of patterns matched against refs/tags
     tags:
-      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+      - 'v*'
 
-name: Create Release
+permissions:
+  contents: write
 
 jobs:
   build:
-    name: Create Release
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
-        uses: actions/checkout@master
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - name: Build JAR
+        run: mvn clean package
+
+      - name: List built files
+        run: ls -lh target/
+
+      - name: Select correct JAR
+        id: jar
+        run: |
+          JAR=$(ls target/*.jar | grep -v 'original' | head -n 1)
+          echo "Selected JAR: $JAR"
+          echo "JAR_FILE=$JAR" >> $GITHUB_OUTPUT
+
       - name: Create Release
         id: create_release
-        uses: actions/create-release@latest
+        uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
+          tag_name: ${{ github.ref_name }}
+          release_name: Release ${{ github.ref_name }}
           body: |
-            **Release Notes:**
-            - Added the Maven Dependency Plugin to automatically create a target/lib folder containing all project dependencies. This enhancement streamlines the packaging process, making it easier to manage and include external libraries required for project execution.
+            Automated release for ${{ github.ref_name }}
           draft: false
           prerelease: false
+
+      - name: Upload JAR to Release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ${{ steps.jar.outputs.JAR_FILE }}
+          asset_name: app.jar
+          asset_content_type: application/java-archive
