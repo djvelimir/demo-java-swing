@@ -46,7 +46,9 @@ jobs:
           tag_name: ${{ github.ref_name }}
           release_name: Release ${{ github.ref_name }}
           body: |
-            Automated release for ${{ github.ref_name }}
+            **Release Notes:**
+            - Replaced the old splash image with the new design
+            - Added a slider to adjust password length
           draft: false
           prerelease: false
 

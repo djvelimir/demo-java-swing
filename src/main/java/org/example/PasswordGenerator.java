@@ -1,5 +1,5 @@
 package org.example;
 
 public interface PasswordGenerator {
-    String generate();
+    String generate(int passwordLength);
 }

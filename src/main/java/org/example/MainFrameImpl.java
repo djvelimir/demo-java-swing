@@ -13,6 +13,7 @@ public class MainFrameImpl implements MainFrame {
     private final PasswordGenerator passwordGenerator;
     private final JFrame frame;
     private final JPasswordField txtGeneratedPassword;
+    private final JSlider slider;
 
     @Autowired
     public MainFrameImpl(PasswordGenerator passwordGenerator) {
@@ -36,13 +37,24 @@ public class MainFrameImpl implements MainFrame {
         toolBar.add(btnGeneratePassword);
         toolBar.add(btnCopyPassword);
 
+        slider = new JSlider(SwingConstants.HORIZONTAL, 4, 128, 16);
+        slider.setPreferredSize(new Dimension(600, slider.getPreferredSize().height + 60));
+        slider.setMajorTickSpacing(16);
+        slider.setMinorTickSpacing(4);
+        slider.setPaintTicks(true);
+        slider.setPaintLabels(true);
+        slider.setToolTipText(String.format("%s %d", "Password Length:", slider.getValue()));
+        slider.addChangeListener(e -> {
+            JSlider s = (JSlider) e.getSource();
+            s.setToolTipText(String.format("%s %d", "Password Length:", s.getValue()));
+        });
+
         JPanel panel = new JPanel(new BorderLayout());
+        panel.add(slider, BorderLayout.NORTH);
         panel.add(toolBar, BorderLayout.EAST);
         panel.add(txtGeneratedPassword, BorderLayout.CENTER);
 
         frame.getContentPane().add(panel, BorderLayout.CENTER);
-
-        txtGeneratedPassword.setPreferredSize(new Dimension(350, 24));
 
         btnCopyPassword.addActionListener(e -> {
             txtGeneratedPassword.putClientProperty("JPasswordField.cutCopyAllowed", true);
@@ -51,7 +63,7 @@ public class MainFrameImpl implements MainFrame {
         });
 
         btnGeneratePassword.addActionListener(e -> {
-            String generatedPassword = this.passwordGenerator.generate();
+            String generatedPassword = this.passwordGenerator.generate(slider.getValue());
             txtGeneratedPassword.setText(generatedPassword);
         });
     }

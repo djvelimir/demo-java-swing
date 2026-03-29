@@ -9,7 +9,6 @@ import java.util.Random;
 
 @Component
 public class PasswordGeneratorImpl implements PasswordGenerator {
-    private static final int PASSWORD_LENGTH = 16;
     private static final String UPPERCASE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     private static final String LOWERCASE_CHARACTERS = "abcdefghijklmnopqrstuvwxyz";
     private static final String DIGIT_CHARACTERS = "0123456789";
@@ -31,7 +30,7 @@ public class PasswordGeneratorImpl implements PasswordGenerator {
      * @return generated password
      */
     @Override
-    public String generate() {
+    public String generate(int passwordLength) {
         var stringBuilder = new StringBuilder();
 
         // generate at least one uppercase character
@@ -46,7 +45,7 @@ public class PasswordGeneratorImpl implements PasswordGenerator {
         // generate at least one special character
         stringBuilder.append(generateRandomCharacter(SPECIAL_CHARACTERS));
 
-        for (int i = 4; i < PASSWORD_LENGTH; i++) {
+        for (int i = 4; i < passwordLength; i++) {
             // generate random character from union of allowed characters
             stringBuilder.append(generateRandomCharacter(UNION_OF_ALLOWED_CHARACTERS));
         }

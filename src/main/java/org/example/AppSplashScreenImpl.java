@@ -15,7 +15,7 @@ public class AppSplashScreenImpl implements AppSplashScreen {
     @Autowired
     public AppSplashScreenImpl() {
         JLabel label = new JLabel();
-        ImageIcon imageIcon = new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/splash_animation.gif")));
+        ImageIcon imageIcon = new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/splash.png")));
         label.setIcon(imageIcon);
         progressBar = new JProgressBar();
         progressBar.setStringPainted(true);
