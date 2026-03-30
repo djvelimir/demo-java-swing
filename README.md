@@ -25,10 +25,6 @@ enhance user experience by providing straightforward tools for password manageme
   <img alt="Use Case Diagram" src="http://www.plantuml.com/plantuml/proxy?cache=no&fmt=svg&src=https://raw.githubusercontent.com/djvelimir/demo-java-swing/main/diagrams/UseCase.puml">
 </picture>
 
-## Splash Screen
+## Main Window
 
-![Splash Screen](resources/SplashScreen.png)
-
-## Main Frame
-
-![Main Frame](resources/MainFrame.png)
+![Main Window](resources/MainWindow.png)
