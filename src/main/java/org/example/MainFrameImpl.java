@@ -1,13 +1,9 @@
 package org.example;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
 import javax.swing.*;
 import java.awt.*;
 import java.util.Objects;
 
-@Component
 public class MainFrameImpl implements MainFrame {
 
     private final PasswordGenerator passwordGenerator;
@@ -15,7 +11,6 @@ public class MainFrameImpl implements MainFrame {
     private final JPasswordField txtGeneratedPassword;
     private final JSlider slider;
 
-    @Autowired
     public MainFrameImpl(PasswordGenerator passwordGenerator) {
         this.passwordGenerator = passwordGenerator;
 

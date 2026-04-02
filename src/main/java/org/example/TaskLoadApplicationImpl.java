@@ -1,14 +1,10 @@
 package org.example;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
 import javax.swing.*;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.Logger;
 
-@Component
 public class TaskLoadApplicationImpl extends SwingWorker<Void, Integer> implements TaskLoadApplication {
 
     private static final int NUMBER_OF_STEPS = 30;
@@ -16,7 +12,6 @@ public class TaskLoadApplicationImpl extends SwingWorker<Void, Integer> implemen
     private final AppSplashScreen splashScreen;
     private final MainFrame mainFrame;
 
-    @Autowired
     public TaskLoadApplicationImpl(AppSplashScreen splashScreen, MainFrame mainFrame) {
         this.splashScreen = splashScreen;
         this.mainFrame = mainFrame;

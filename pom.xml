@@ -43,17 +43,6 @@
       <version>5.23.0</version>
       <scope>test</scope>
     </dependency>
-    <dependency>
-      <groupId>net.bytebuddy</groupId>
-      <artifactId>byte-buddy-agent</artifactId>
-      <version>1.18.7-jdk5</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-context</artifactId>
-      <version>7.0.6</version>
-    </dependency>
   </dependencies>
 
   <build>

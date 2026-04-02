@@ -47,8 +47,7 @@ jobs:
           release_name: Release ${{ github.ref_name }}
           body: |
             **Release Notes:**
-            - Replaced the old splash image with the new design
-            - Added a slider to adjust password length
+            - Remove Spring dependency and annotations
           draft: false
           prerelease: false
 

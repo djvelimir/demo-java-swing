@@ -1,18 +1,13 @@
 package org.example;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
 import javax.swing.*;
 import java.awt.*;
 import java.util.Objects;
 
-@Component
 public class AppSplashScreenImpl implements AppSplashScreen {
     private final JWindow window;
     private final JProgressBar progressBar;
 
-    @Autowired
     public AppSplashScreenImpl() {
         JLabel label = new JLabel();
         ImageIcon imageIcon = new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/splash.png")));
