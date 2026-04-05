@@ -32,10 +32,10 @@ public class MainFrameImpl implements MainFrame {
         toolBar.add(btnGeneratePassword);
         toolBar.add(btnCopyPassword);
 
-        slider = new JSlider(SwingConstants.HORIZONTAL, 4, 128, 16);
+        slider = new JSlider(SwingConstants.HORIZONTAL, 8, 128, 16);
         slider.setPreferredSize(new Dimension(600, slider.getPreferredSize().height + 60));
         slider.setMajorTickSpacing(16);
-        slider.setMinorTickSpacing(4);
+        slider.setMinorTickSpacing(8);
         slider.setPaintTicks(true);
         slider.setPaintLabels(true);
         slider.setToolTipText(String.format("%s %d", "Password Length:", slider.getValue()));

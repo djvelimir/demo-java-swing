@@ -3,7 +3,7 @@ package org.example;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.Random;
+import java.security.SecureRandom;
 
 public class PasswordGeneratorImpl implements PasswordGenerator {
     private static final String UPPERCASE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -14,7 +14,7 @@ public class PasswordGeneratorImpl implements PasswordGenerator {
             .concat(LOWERCASE_CHARACTERS)
             .concat(DIGIT_CHARACTERS)
             .concat(SPECIAL_CHARACTERS);
-    private static final Random RANDOM_OBJECT = new Random();
+    private static final SecureRandom RANDOM_OBJECT = new SecureRandom();
 
     /**
      * Generate random password
